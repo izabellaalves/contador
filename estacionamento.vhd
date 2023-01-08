@@ -28,7 +28,7 @@ begin
         elib <= '1';
         enao<='0';
      elsif contagem>=15 then
-        --contagem:=15;
+        contagem:=15;
         enao <= '1';
         elib<='0';
      end if;
