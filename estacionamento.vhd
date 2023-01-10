@@ -1,4 +1,3 @@
-
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.numeric_std;
@@ -18,20 +17,25 @@ begin
     
     if rising_edge(entra) then
         contagem:= contagem + 1;
+        if contagem<15 then 
+            elib <= '1';
+            enao<='0';
+        elsif contagem>=15 then
+            contagem:=15;
+            enao <= '1';
+            elib<='0';
     end if;
+    end if;
+    
     
     if rising_edge(sai) then
         contagem:= contagem - 1;
+        if contagem<15 then 
+            elib <= '1';
+            enao<='0';
+        elsif contagem>=15 then
+            contagem:=15;
+            enao <= '1';
+            elib<='0';
+            end if;
      end if;
-     
-     if contagem<15 then 
-        elib <= '1';
-        enao<='0';
-     elsif contagem>=15 then
-        contagem:=15;
-        enao <= '1';
-        elib<='0';
-     end if;
-    end process;
-
-end Behavioral;
